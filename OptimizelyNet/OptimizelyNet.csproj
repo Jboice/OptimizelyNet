@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>d26c7d03-9aba-4004-a4f3-c5816b611764</ProjectGuid>
+    <ProjectGuid>58368bb5-81bd-4eca-926a-0402be13f745</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OptimizelyNet</RootNamespace>
