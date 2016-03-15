@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyNet", "OptimizelyNet.csproj", "{D26C7D03-9ABA-4004-A4F3-C5816B611764}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyNet", "OptimizelyNet\OptimizelyNet.csproj", "{58368BB5-81BD-4ECA-926A-0402BE13F745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyNet.Tests", "OptimizelyNet.Tests\OptimizelyNet.Tests.csproj", "{0B64C65E-0B01-40C1-8950-EBDB1B42A987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D26C7D03-9ABA-4004-A4F3-C5816B611764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D26C7D03-9ABA-4004-A4F3-C5816B611764}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D26C7D03-9ABA-4004-A4F3-C5816B611764}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D26C7D03-9ABA-4004-A4F3-C5816B611764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58368BB5-81BD-4ECA-926A-0402BE13F745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58368BB5-81BD-4ECA-926A-0402BE13F745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58368BB5-81BD-4ECA-926A-0402BE13F745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58368BB5-81BD-4ECA-926A-0402BE13F745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B64C65E-0B01-40C1-8950-EBDB1B42A987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B64C65E-0B01-40C1-8950-EBDB1B42A987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B64C65E-0B01-40C1-8950-EBDB1B42A987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B64C65E-0B01-40C1-8950-EBDB1B42A987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
