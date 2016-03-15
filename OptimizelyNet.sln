@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyNet", "OptimizelyNet\OptimizelyNet.csproj", "{58368BB5-81BD-4ECA-926A-0402BE13F745}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizelyNet.Tests", "OptimizelyNet.Tests\OptimizelyNet.Tests.csproj", "{0B64C65E-0B01-40C1-8950-EBDB1B42A987}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58368BB5-81BD-4ECA-926A-0402BE13F745} = {58368BB5-81BD-4ECA-926A-0402BE13F745}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
