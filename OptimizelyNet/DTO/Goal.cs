@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using RestSharp.Deserializers;
 
 // ReSharper disable InconsistentNaming
 
@@ -15,9 +14,7 @@ namespace OptimizelyNet.DTO
         public string id { get; set; }
         public List<string> target_urls { get; set; }
         public string title { get; set; }
-        [DeserializeAs(Name = "event")]
         public string event_name { get; set; }
-
         public List<string> url_match_types { get; set; }
         public string project_id { get; set; }
         public int goal_type { get; set; }

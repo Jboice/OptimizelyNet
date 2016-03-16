@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using OptimizelyNet.DTO;
-using RestSharp;
-using RestSharp.Extensions;
 
 namespace OptimizelyNet
 {
@@ -14,32 +15,27 @@ namespace OptimizelyNet
     {
         private const string BaseUrl = "https://www.optimizelyapis.com";
         private const string ApiVersion = "v1";
-        private readonly string _apiToken;
+        private readonly HttpClient _client;
 
         public OptimizelyNet(string apiToken)
         {
-            _apiToken = apiToken;
+            _client = new HttpClient {BaseAddress = new Uri(BaseUrl)};
+            _client.DefaultRequestHeaders.Accept.Clear();
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _client.DefaultRequestHeaders.Add("token", apiToken);
         }
 
-        private T Execute<T>(RestRequest request) where T : new()
+        public async Task<T> ExecuteAsync<T>(string request) where T : new()
         {
-            var client = new RestClient(BaseUrl);
-            client.AddDefaultHeader("token", _apiToken);
-            client.AddDefaultParameter("ApiVersion", ApiVersion, ParameterType.UrlSegment);
-            var response = client.Execute<T>(request);
+            HttpResponseMessage response = await _client.GetAsync(request);
 
-            if (response.ErrorException != null)
+            if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException("Error retrieving response - see inner exception for more details.", response.ErrorException);
+                throw new ApplicationException("Error retrieving data");
             }
 
-            return response.Data;
-        }
-
-        public List<Project> GetProjects()
-        {
-            var request = new RestRequest("experiment/{ApiVersion}/projects/");
-            return Execute<List<Project>>(request);
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(content, new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore });
         }
     }
 }

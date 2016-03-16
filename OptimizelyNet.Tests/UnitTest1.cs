@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OptimizelyNet;
+using OptimizelyNet.DTO;
 
 namespace OptimizelyNet.Tests
 {
@@ -18,9 +21,10 @@ namespace OptimizelyNet.Tests
         public void TestMethod1()
         {
             var optimizely = new OptimizelyNet(ApiToken);
-            var projects = optimizely.GetProjects();
+            var result = optimizely.ExecuteAsync<List<Project>>("experiment/v1/projects/").GetAwaiter().GetResult();
 
-            Assert.IsNotNull(projects);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Count > 0);
         }
     }
 }
